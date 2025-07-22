@@ -6,6 +6,7 @@ import { createCatScheam, CreateCatDto } from "./cto/create-dto"
 import { ValidationParamPipe } from "./pipe/validation.pipe"
 import { ZodValidationPipe } from "./pipe/zodValidation.pipe"
 import { AuthGuard } from "./guard/auth.guard"
+import { WeatherValidationPipe } from './pipe/weatherValidation.pipe';
 
 // dto 参数接收类
 
@@ -38,5 +39,9 @@ export class AppController {
     //   msg: "error"
     // }, HttpStatus.FORBIDDEN)
     return "111"
+  }
+  @Get(":city")
+  getCityWeather(@Param("city", WeatherValidationPipe) city: string) {
+    return city
   }
 }

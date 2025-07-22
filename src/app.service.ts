@@ -5,4 +5,7 @@ export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
+  async getWeather(api: string) {
+    // const res = await api
+  }
 }
